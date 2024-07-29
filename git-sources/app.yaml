@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: application
+metadata: 
+  name: git-source
+spec:
+  destination: 
+    namespace: single-git-source
+    server: https://kubernetes.default.svc
+  source: 
+    path: Naveen/single-git-source
+    repourl: https://github.com/OpsMx/argo-training
+    targetRevision: HEAD
+  project: default
+  syncPolicy:
+    automated: 
+      prune: true
+      selfheal: true
+    synOptions: 
+      - CreateNamespace=true
