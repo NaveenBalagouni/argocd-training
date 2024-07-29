@@ -7,10 +7,10 @@ spec:
   project: default
   source:
     repoURL: 'https://github.com/NaveenBalagouni/argocd-training.git'
-    path: 'two-sources'
+    path: 'two -git-sources/two-git'
     targetRevision: HEAD
     repoURL: 'https://github.com/NaveenBalagouni/argocd-training.git'
-    path: 'git-sources'
+    path: 'two -git-sources/git-sources'
     targetRevision: HEAD
   destination:
     server: 'https://kubernetes.default.svc'
