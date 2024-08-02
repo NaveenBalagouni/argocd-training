@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/NaveenBalagouni/argocd-training
     targetRevision: HEAD
-    path: path/to/directory1
+    path: single-sources
     path: path/to/directory1
     # Specify multiple sources here
     directory:
