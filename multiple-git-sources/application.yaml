@@ -21,7 +21,7 @@ spec:
         path: '{{path.path}}'
       destination:
         server: https://kubernetes.default.svc
-        namespace: default
+        namespace: multiple-sources
       syncPolicy:
         automated:
           prune: true
