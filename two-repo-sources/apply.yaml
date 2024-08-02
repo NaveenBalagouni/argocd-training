@@ -1,14 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
-kind: ApplicationSet
+kind: Application
 metadata:
   name: multi-repo-appset
   namespace: argocd
 spec:
   generators:
     - git:
-        repoURL: https://github.com/my-org/manifest-repo
+        repoURL: 'https://github.com/NaveenBalagouni/argocd-training.git'
         directories:
-          - path: path/to/dir
+          - path: sources-git
+    - git:
+        repoURL: 'https://github.com/OpsMx/argo-training.git'
+        directories:
+          - path: Naveen
   template:
     metadata:
       name: '{{path.basename}}'
@@ -25,3 +29,4 @@ spec:
         automated:
           prune: true
           selfHeal: true
+
