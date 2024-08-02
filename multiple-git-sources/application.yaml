@@ -1,23 +1,30 @@
 apiVersion: argoproj.io/v1alpha1
-kind: Application
+kind: ApplicationSet
 metadata:
-  name: multi-source-app
+  name: multi-source-appset
   namespace: argocd
 spec:
-  project: default
-  source:
-    repoURL: https://github.com/NaveenBalagouni/argocd-training
-    targetRevision: HEAD
-    path: sources-git
-    path: two-git
-    # Specify multiple sources here
-    directory:
-      recurse: true
-  destinations:
-  - server: https://kubernetes.default.svc
-    namespace: default
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
+  generators:
+  - git:
+      repoURL: https://github.com/NaveenBalagouni/argocd-training
+      directories:
+      - path: path/to/manifests1
+      - path: path/to/manifests2
+  template:
+    metadata:
+      name: '{{path.basename}}'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/NaveenBalagouni/argocd-training
+        targetRevision: main
+        path: '{{path.path}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: default
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+
 
