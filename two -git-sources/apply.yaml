@@ -6,9 +6,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/NaveenBalagouni/argocd-training
+    repoURL: 'https://github.com/NaveenBalagouni/argocd-training'
     targetRevision: HEAD
-    path: two -git-sources
+    path: 'two -git-sources'
     # Specify multiple sources here
     directory:
       recurse: true
