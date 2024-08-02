@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Applications
 metadata:
-  name: my-app
+  name: sample-multiple-sources
   namespace: argocd
 spec:
   generators:
