@@ -8,7 +8,7 @@ spec:
   - git:
       repoURL: https://github.com/NaveenBalagouni/argocd-training
       directories:
-      - path: path/to/manifests1
+      - path: two-git
       - path: path/to/manifests2
   template:
     metadata:
