@@ -9,7 +9,7 @@ spec:
     repoURL: https://github.com/NaveenBalagouni/argocd-training
     targetRevision: HEAD
     path: single-sources
-    path: path/to/directory1
+    path: two-git
     # Specify multiple sources here
     directory:
       recurse: true
