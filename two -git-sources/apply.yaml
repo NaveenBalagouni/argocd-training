@@ -1,20 +1,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: my-app
+  name: two-sources-app
   namespace: argocd
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/NaveenBalagouni/argocd-training.git'
-    path: 'two -git-sources/two-git'
+    repoURL: https://github.com/NaveenBalagouni/argocd-training
     targetRevision: HEAD
-    repoURL: 'https://github.com/NaveenBalagouni/argocd-training.git'
-    path: 'two -git-sources/git-sources'
-    targetRevision: HEAD
-  destination:
-    server: 'https://kubernetes.default.svc'
-    namespace: two-sources
+    path: path/to/directory1
+    # Specify multiple sources here
+    directory:
+      recurse: true
+  destinations:
+  - server: https://kubernetes.default.svc
+    namespace: default
   syncPolicy:
     automated:
       prune: true
