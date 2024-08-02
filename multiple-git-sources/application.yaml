@@ -6,7 +6,7 @@ metadata:
 spec:
   generators:
   - git:
-      repoURL: https://github.com/NaveenBalagouni/argocd-training
+      repoURL: https://github.com/NaveenBalagouni/argocd-training.git
       directories:
       - path: two-git
       - path: sources-git
@@ -16,7 +16,7 @@ spec:
     spec:
       project: default
       source:
-        repoURL: https://github.com/NaveenBalagouni/argocd-training
+        repoURL: https://github.com/NaveenBalagouni/argocd-training.git
         targetRevision: main
         path: '{{path.path}}'
       destination:
