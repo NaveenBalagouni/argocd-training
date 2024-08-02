@@ -19,7 +19,7 @@ spec:
     spec:
       project: default
       source:
-        repoURL: https://github.com/my-org/another-repo
+        repoURL: 'https://github.com/NaveenBalagouni/argocd-training.git'
         targetRevision: main
         path: '{{path.path}}'
       destination:
