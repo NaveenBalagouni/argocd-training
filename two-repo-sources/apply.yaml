@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: multi-repo-appset
+  namespace: argocd
+spec:
+  generators:
+    - git:
+        repoURL: https://github.com/my-org/manifest-repo
+        directories:
+          - path: path/to/dir
+  template:
+    metadata:
+      name: '{{path.basename}}'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/my-org/another-repo
+        targetRevision: main
+        path: '{{path.path}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: default
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
