@@ -9,7 +9,7 @@ spec:
       repoURL: https://github.com/NaveenBalagouni/argocd-training
       directories:
       - path: two-git
-      - path: path/to/manifests2
+      - path: sources-git
   template:
     metadata:
       name: '{{path.basename}}'
