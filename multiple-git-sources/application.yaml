@@ -9,12 +9,12 @@ spec:
       repoURL: 'https://github.com/NaveenBalagouni/argocd-training.git'
       revision: HEAD
       directories:
-      - path: 'two-git'
+      - path: two-git
   - git:
       repoURL: 'https://github.com/NaveenBalagouni/argocd-training.git'
       revision: HEAD
       directories:
-      - path: 'sources-git'
+      - path: sources-git
   template:
     metadata:
       name: '{{path.basename}}'
