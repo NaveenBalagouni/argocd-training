@@ -1,1 +1,29 @@
-
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: sample-multiple-sources
+  namespace: argocd
+spec:
+  generators:
+    - git:
+        repoURL: 'https://github.com/NaveenBalagouni/argocd-training.git'
+        revision: HEAD
+        directories:
+          - path: two-git
+          - path: sources-git
+  template:
+    metadata:
+      name: '{{path.basename}}'
+    spec:
+      project: default
+      source:
+        repoURL: 'https://github.com/NaveenBalagouni/argocd-training.git'
+        targetRevision: HEAD
+        path: '{{path}}'
+      destination:
+        server: 'https://kubernetes.default.svc'
+        namespace: default
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
