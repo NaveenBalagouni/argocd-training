@@ -11,10 +11,10 @@ spec:
         directories:
           - path: git-source
     - git:
-        repoURL: 'https://github.com/OpsMx/argo-training.git'
+        repoURL: 'https://github.com/NaveenBalagouni/Argocd-trainings.git'
         revision: main  # Specify the branch, tag, or commit hash
         directories:
-          - path: Naveen
+          - path: two-repos
   template:
     metadata:
       name: '{{path.basename}}'
