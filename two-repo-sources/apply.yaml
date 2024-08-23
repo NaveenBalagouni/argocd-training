@@ -1,5 +1,5 @@
 apiVersion: argoproj.io/v1alpha1
-kind: Application
+kind: ApplicationSet
 metadata:
   name: two-repo-sample
   namespace: argocd
@@ -19,14 +19,13 @@ spec:
     spec:
       project: default
       source:
-        repoURL: 'https://github.com/NaveenBalagouni/argocd-training.git'
+        repoURL: '{{repoURL}}'  # This will be replaced by the repoURL from the generator
         targetRevision: main
         path: '{{path.path}}'
       destination:
-        server: https://kubernetes.default.svc
+        server: 'https://kubernetes.default.svc'
         namespace: default
       syncPolicy:
         automated:
           prune: true
           selfHeal: true
-
