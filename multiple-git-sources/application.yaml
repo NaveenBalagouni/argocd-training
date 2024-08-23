@@ -1,27 +1,23 @@
 apiVersion: argoproj.io/v1alpha1
-kind: Application
+kind: ApplicationSet
 metadata:
   name: sample-multiple-sources
   namespace: argocd
 spec:
   generators:
-  - git:
-      repoURL: 'https://github.com/NaveenBalagouni/argocd-training.git'
-      revision: HEAD
-      directories:
-      - path: two-git
-  - git:
-      repoURL: 'https://github.com/NaveenBalagouni/argocd-training.git'
-      revision: HEAD
-      directories:
-      - path: sources-git
+    - git:
+        repoURL: 'https://github.com/NaveenBalagouni/argocd-training.git'
+        revision: HEAD
+        directories:
+          - path: two-git
+          - path: sources-git
   template:
     metadata:
       name: '{{path.basename}}'
     spec:
       project: default
-      source: https://github.com/NaveenBalagouni/argocd-training.git
-        repoURL: '{{repoURL}}'
+      source:
+        repoURL: 'https://github.com/NaveenBalagouni/argocd-training.git'
         targetRevision: HEAD
         path: '{{path}}'
       destination:
