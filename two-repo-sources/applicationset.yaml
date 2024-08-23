@@ -9,7 +9,7 @@ spec:
         repoURL: 'https://github.com/NaveenBalagouni/argocd-training.git'
         revision: main  # Specify the branch, tag, or commit hash
         directories:
-          - path: sources-git
+          - path: git-source
     - git:
         repoURL: 'https://github.com/OpsMx/argo-training.git'
         revision: main  # Specify the branch, tag, or commit hash
