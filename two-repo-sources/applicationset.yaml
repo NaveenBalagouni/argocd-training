@@ -6,10 +6,10 @@ metadata:
 spec:
   generators:
     - git:
-        repoURL: 'https://github.com/NaveenBalagouni/argocd-training.git'
+        repoURL: 'hhttps://github.com/OpsMx/argo-training.git'
         revision: main  # Specify the branch, tag, or commit hash
         directories:
-          - path: git-source
+          - path: Naveen
     - git:
         repoURL: 'https://github.com/NaveenBalagouni/Argocd-trainings.git'
         revision: main  # Specify the branch, tag, or commit hash
