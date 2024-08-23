@@ -18,7 +18,7 @@ spec:
       name: '{{path.basename}}'
     spec:
       project: default
-      source:
+      source: 'https://github.com/NaveenBalagouni/argocd-training.git'
         repoURL: '{{repoURL}}'  # This will be replaced by the repoURL from the generator
         targetRevision: main
         path: '{{path.path}}'
