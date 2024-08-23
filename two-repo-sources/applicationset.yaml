@@ -18,10 +18,10 @@ spec:
       name: '{{path.basename}}'
     spec:
       project: default
-      source: 'https://github.com/NaveenBalagouni/argocd-training.git'
-        repoURL: '{{repoURL}}'  # This will be replaced by the repoURL from the generator
+      source:
+        repoURL: '{{repoURL}}'
         targetRevision: main
-        path: '{{path.path}}'
+        path: '{{path}}'
       destination:
         server: 'https://kubernetes.default.svc'
         namespace: default
