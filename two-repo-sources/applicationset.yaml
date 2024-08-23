@@ -20,7 +20,7 @@ spec:
       name: '{{path.basename}}'
     spec:
       project: default
-      source:
+      source: 'https://github.com/NaveenBalagouni/argocd-training.git'
         repoURL: '{{repoURL}}'
         targetRevision: '{{revision}}'
         path: '{{path}}'
