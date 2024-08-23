@@ -7,10 +7,12 @@ spec:
   generators:
     - git:
         repoURL: 'https://github.com/NaveenBalagouni/argocd-training.git'
+        revision: main  # Specify the branch, tag, or commit hash
         directories:
           - path: sources-git
     - git:
         repoURL: 'https://github.com/OpsMx/argo-training.git'
+        revision: main  # Specify the branch, tag, or commit hash
         directories:
           - path: Naveen
   template:
@@ -20,10 +22,10 @@ spec:
       project: default
       source:
         repoURL: '{{repoURL}}'
-        targetRevision: main
+        targetRevision: '{{revision}}'
         path: '{{path}}'
       destination:
-        server: 'https://kubernetes.default.svc'
+        server: https://kubernetes.default.svc
         namespace: default
       syncPolicy:
         automated:
