@@ -1,3 +1,4 @@
+apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: two-repo-sample
@@ -5,27 +6,27 @@ metadata:
 spec:
   generators:
     - git:
-        repoURL: 'hhttps://github.com/OpsMx/argo-training.git'
+        repoURL: 'https://github.com/OpsMx/argo-training.git'
         revision: main  # Specify the branch, tag, or commit hash
         directories:
-          - path: Naveen
+          - path: Naveen  # Path in the first repo
     - git:
         repoURL: 'https://github.com/NaveenBalagouni/argocd-training.git'
         revision: main  # Specify the branch, tag, or commit hash
         directories:
-          - path: single-sources
+          - path: single-sources  # Path in the second repo
   template:
     metadata:
-      name: '{{path.basename}}'
+      name: '{{path.basename}}-app'  # Creates a unique name for each application
     spec:
       project: default
-      source: 'https://github.com/NaveenBalagouni/argocd-training.git'
+      source:
         repoURL: '{{repoURL}}'
         targetRevision: '{{revision}}'
         path: '{{path}}'
       destination:
         server: https://kubernetes.default.svc
-        namespace: two-sorces-apps
+        namespace: two-source-apps  # Ensure this namespace exists
       syncPolicy:
         automated:
           prune: true
