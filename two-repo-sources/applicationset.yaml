@@ -14,7 +14,7 @@ spec:
         repoURL: 'https://github.com/NaveenBalagouni/argocd-training.git'
         revision: main  # Specify the branch, tag, or commit hash
         directories:
-          - path: single-sources  # Path in the second repo
+          - path: git-source  # Path in the second repo
   template:
     metadata:
       name: '{{path.basename}}-app'  # Creates a unique name for each application
