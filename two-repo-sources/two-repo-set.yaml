@@ -27,7 +27,4 @@ spec:
       destination:
         server: https://kubernetes.default.svc
         namespace: two-repo-sources  # Ensure this namespace exists
-      syncPolicy:
-        automated:
-          prune: true
-          selfHeal: true
+  
