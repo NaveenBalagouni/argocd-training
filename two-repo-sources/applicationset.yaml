@@ -26,7 +26,7 @@ spec:
         path: '{{path}}'
       destination:
         server: https://kubernetes.default.svc
-        namespace: two-source-apps  # Ensure this namespace exists
+        namespace: two-repo-sources  # Ensure this namespace exists
       syncPolicy:
         automated:
           prune: true
