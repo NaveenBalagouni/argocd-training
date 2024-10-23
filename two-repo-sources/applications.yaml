@@ -6,7 +6,7 @@ metadata:
 spec:
   generators:
     - git:
-         repoURL: 'https://github.com/NaveenBalagouni/argocd-training.git'
+        repoURL: 'https://github.com/NaveenBalagouni/argocd-training.git'
         revision: main  # Specify the branch, tag, or commit hash
         directories:
           - path: git-single-repo  # Path in the first repo
