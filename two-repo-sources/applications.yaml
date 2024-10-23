@@ -21,7 +21,7 @@ spec:
     spec:
       project: default
       sources:
-        - repoURL: 'https://github.com/NaveenBalagouni/argocd-training.git'
+        - repoURL: https://github.com/NaveenBalagouni/argocd-training.git
           targetRevision: main
           path: git-single-repo
         - repoURL: 'https://github.com/OpsMx/argo-training.git'
