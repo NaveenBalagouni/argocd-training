@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: sample-two-repo-sources
+  name: sample-two-repo
   namespace: argocd
 spec:
   generators:
