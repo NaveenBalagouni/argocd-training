@@ -14,7 +14,7 @@ spec:
         repoURL: 'https://github.com/OpsMx/argo-training.git'
         revision: HEAD
         directories:
-          - path: Naveen
+          - path: Naveen/two-git-repo
   template:
     metadata:
       name: '{{path.basename}}-app'
@@ -26,7 +26,7 @@ spec:
           path: git-single-repo
         - repoURL: 'https://github.com/OpsMx/argo-training.git'
           targetRevision: main
-          path: Naveen
+          path: Naveen/two-git-repo
       destination:
         server: https://kubernetes.default.svc
         namespace: two-repo-sources
