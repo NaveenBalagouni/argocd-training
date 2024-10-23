@@ -23,7 +23,7 @@ spec:
       sources:
          repoURL: 'https://github.com/NaveenBalagouni/argocd-training.git'
         targetRevision: HEAD
-        path: two-repo-sources
+        path: git-single-repo
       destination:
         server: https://kubernetes.default.svc
         namespace: two-repo-sources  # Ensure this namespace exists
