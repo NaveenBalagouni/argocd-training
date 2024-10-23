@@ -9,7 +9,7 @@ spec:
         repoURL: 'https://github.com/OpsMx/argo-training.git'
         revision: main  # Specify the branch, tag, or commit hash
         directories:
-          - path: two-repo-sources  # Path in the first repo
+          - path: Naveen/two-git-repo  # Path in the first repo
     - git:
         repoURL: 'https://github.com/NaveenBalagouni/argocd-training.git'
         revision: main  # Specify the branch, tag, or commit hash
@@ -21,12 +21,9 @@ spec:
     spec:
       project: default
       sources:
-        repoURL: 'https://github.com/OpsMx/argo-training.git'
-        targetRevision: HEAD
-        path: Naveen/two-git-repo
          repoURL: 'https://github.com/NaveenBalagouni/argocd-training.git'
         targetRevision: HEAD
-        path: git-single-repo
+        path: two-repo-sources
       destination:
         server: https://kubernetes.default.svc
         namespace: two-repo-sources  # Ensure this namespace exists
