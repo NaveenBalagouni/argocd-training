@@ -12,7 +12,7 @@ spec:
           - path: git-single-repo
     - git:
         repoURL: 'https://github.com/OpsMx/argo-training.git'
-        targetRevision: HEAD
+        revision: HEAD
         directories:
           - path: Naveen/two-git-repo
   template:
