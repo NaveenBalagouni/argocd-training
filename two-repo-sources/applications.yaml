@@ -23,7 +23,7 @@ spec:
       sources:
         repoURL: 'https://github.com/NaveenBalagouni/argocd-training.git'
         targetRevision: HEAD
-        path: 'Naveen/two-git-repo'
+        path: Naveen/two-git-repo
         repoURL: 'https://github.com/OpsMx/argo-training.git'
         targetRevision: HEAD
         path: '{{path}}'
