@@ -13,7 +13,8 @@ spec:
     - git:
         repoURL: 'https://github.com/OpsMx/argo-training.git'
         targetRevision: HEAD
-        path: Naveen/two-git-repo
+        directories:
+          - path: Naveen/two-git-repo
   template:
     metadata:
       name: '{{path.basename}}-app'
