@@ -9,7 +9,7 @@ spec:
         repoURL: 'https://github.com/OpsMx/argo-training.git'
         revision: main  # Specify the branch, tag, or commit hash
         directories:
-          - path: Naveen/two-git-repo  # Path in the first repo
+          - path: two-repo-sources  # Path in the first repo
     - git:
         repoURL: 'https://github.com/NaveenBalagouni/argocd-training.git'
         revision: main  # Specify the branch, tag, or commit hash
