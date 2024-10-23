@@ -24,9 +24,6 @@ spec:
         - repoURL: 'https://github.com/NaveenBalagouni/argocd-training.git'
           targetRevision: main
           path: git-single-repo
-        - repoURL: 'https://github.com/OpsMx/argo-training.git'
-          targetRevision: HEAD
-          path: Naveen/two-git-repo
       destination:
         server: https://kubernetes.default.svc
         namespace: two-repo-sources
