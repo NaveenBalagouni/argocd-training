@@ -11,10 +11,10 @@ spec:
         directories:
           - path: git-single-repo
     - git:
-        repoURL: 'https://github.com/NaveenBalagouni/argocd-training.git'
-        revision: main
+        repoURL: 'https://github.com/OpsMx/argo-training.git'
+        revision: HEAD
         directories:
-          - path: git-single-repo
+          - path: Naveen/two-git-repo
   template:
     metadata:
       name: '{{path.basename}}-app'
@@ -22,7 +22,7 @@ spec:
       project: default
       sources:
         - repoURL: 'https://github.com/NaveenBalagouni/argocd-training.git'
-          targetRevision: HEAD
+          targetRevision: main
           path: git-single-repo
         - repoURL: 'https://github.com/OpsMx/argo-training.git'
           targetRevision: HEAD
