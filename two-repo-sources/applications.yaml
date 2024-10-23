@@ -26,7 +26,7 @@ spec:
           path: git-single-repo
         - repoURL: 'https://github.com/OpsMx/argo-training.git'
           targetRevision: main
-          path: Naveen/two-git-repo
+          path: '{{path}}'
       destination:
         server: https://kubernetes.default.svc
         namespace: two-repo-sources
