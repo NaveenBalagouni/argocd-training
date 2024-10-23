@@ -10,11 +10,6 @@ spec:
         revision: main
         directories:
           - path: git-single-repo
-    - git:
-        repoURL: 'https://github.com/OpsMx/argo-training.git'
-        revision: HEAD
-        directories:
-          - path: Naveen/two-git-repo
   template:
     metadata:
       name: '{{path.basename}}-app'
