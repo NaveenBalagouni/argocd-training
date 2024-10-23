@@ -21,11 +21,11 @@ spec:
       project: default
       sources:
         - repoURL: 'https://github.com/NaveenBalagouni/argocd-training.git'
-          targetRevision: main
-          path: git-single-repo
+        targetRevision: HEAD
+        path: '{{path}}'
         - repoURL: 'https://github.com/OpsMx/argo-training.git'
           targetRevision: HEAD
-          path: Naveen/two-git-repo
+          path: '{{path}}'
       destination:
         server: https://kubernetes.default.svc
         namespace: two-repo-sources
