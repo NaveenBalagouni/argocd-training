@@ -22,11 +22,8 @@ spec:
       project: default
       sources:
         repoURL: 'https://github.com/NaveenBalagouni/argocd-training.git'
-        targetRevision: main
-        path: 'two-repo-sources'
-        repoURL: 'https://github.com/NaveenBalagouni/argocd-training.git'
-        targetRevision: main
-        path: 'two-repo-sources'  
+        targetRevision: HEAD
+        path: '{{path}}'
       destination:
         server: https://kubernetes.default.svc
         namespace: two-repo-sources  # Ensure this namespace exists
