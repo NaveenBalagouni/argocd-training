@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-recursive-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/NaveenBalagouni/argocd-training'
+    targetRevision: main
+    path: my-recursive-app  # Root directory containing your recursive folder structure
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: recursive-app
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
