@@ -1,1 +1,23 @@
-
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: single-helm-source
+  namespace: argocd
+spec:
+  destination:
+    namespace: single-helm-sample
+    server: 'https://target-vcluster.gartner.opsmx.net:443'
+  source:
+    repoURL: 'https://github.com/OpsMx/argo-customer-demo.git'
+    path: datas/helm/single-helm
+    targetRevision: HEAD
+    helm:
+      valueFiles:
+        - values.yaml
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
