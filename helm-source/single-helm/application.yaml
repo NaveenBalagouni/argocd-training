@@ -8,8 +8,8 @@ spec:
     namespace: single-helm-sample
     server: 'https://target-vcluster.gartner.opsmx.net:443'
   source:
-    repoURL: 'https://github.com/OpsMx/argo-customer-demo.git'
-    path: datas/helm/single-helm
+    repoURL: 'https://github.com/NaveenBalagouni/argocd-training'
+    path: my-helm-charts/single-helm-sample
     targetRevision: HEAD
     helm:
       valueFiles:
