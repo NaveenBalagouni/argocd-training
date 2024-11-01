@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: matrix-generator
+spec:
+  generators:
+  - list:
+      elements:
+      - cluster: cluster1
+        url: https://cluster1.example.com
+      - cluster: cluster2
+        url: https://cluster2.example.com
+  - git:
+      repoURL: https://github.com/argoproj/argocd-example-apps.git
+      directories:
+      - path: 'guestbook/*'
+  template:
+    metadata:
+      name: '{{cluster}}-{{path.basename}}'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/argoproj/argocd-example-apps.git
+        targetRevision: HEAD
+        path: '{{path}}'
+      destination:
+        server: '{{url}}'
+        namespace: '{{path.basename}}'
