@@ -1,1 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: list-generator
+spec:
+  generators:
+  - list:
+      elements:
+      - cluster: cluster1
+        url: https://cluster1.example.com
+      - cluster: cluster2
+        url: https://cluster2.example.com
+  template:
+    metadata:
+      name: '{{cluster}}-app'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/argoproj/argocd-example-apps.git
+        targetRevision: HEAD
+        path: guestbook
+      destination:
+        server: '{{url}}'
+        namespace: default
 
