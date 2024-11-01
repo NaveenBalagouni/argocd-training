@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: merged-generators
+spec:
+  generators:
+    # List Generator
+    - list:
+        elements:
+          - cluster: cluster1
+            url: https://cluster1.example.com
+          - cluster: cluster2
+            url: https://cluster2.example.com
+    # Git Generator
+    - git:
+        repoURL: https://github.com/argoproj/argocd-example-apps.git
+        directories:
+          - path: 'guestbook/*'
+    # Cluster Generator
+    - clusters: {}
+  template:
+    metadata:
+      name: '{{cluster}}-{{path.basename}}-app'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/argoproj/argocd-example-apps.git
+        targetRevision: HEAD
+        path: '{{path}}'
+      destination:
+        server: '{{url}}'
+        namespace: default
