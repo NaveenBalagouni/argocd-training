@@ -4,7 +4,7 @@ metadata:
   name: recursive-app
   namespace: argocd
 spec:
-  project: default
+  project: app-of-apps
   source:
     repoURL: 'https://github.com/NaveenBalagouni/argocd-training'
     targetRevision: main
