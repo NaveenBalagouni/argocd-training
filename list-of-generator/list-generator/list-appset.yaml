@@ -1,21 +1,21 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: list-applicationset-frontend-apps
+  name: list-applicationset
   namespace: argocd
 spec:
   generators:
     - list:
         elements:
           - name: list-applicationset-first-application
-            repoURL: 'https://github.com/OpsMx/argo-sample-apps.git'
+            repoURL: 'https://github.com/NaveenBalagouni/argocd-training.git'
             targetRevision: 'HEAD'
-            path: apps-resources/single-git-resources
+            path: git-source
 
           - name: list-applicationset-second-application
-            repoURL: 'https://github.com/OpsMx/argo-sample-apps.git'
+            repoURL: 'https://github.com/NaveenBalagouni/argocd-training.git'
             targetRevision: 'HEAD'
-            path: apps-resources/double-git-resources
+            path: sources-git
   
   template:
     metadata:
