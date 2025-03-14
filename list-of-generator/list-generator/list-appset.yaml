@@ -10,12 +10,12 @@ spec:
           - name: list-applicationset-first-application
             repoURL: 'https://github.com/NaveenBalagouni/argocd-training.git'
             targetRevision: 'HEAD'
-            path: git-source
+            path: Generator-resources/list-resources/list1 
 
           - name: list-applicationset-second-application
             repoURL: 'https://github.com/NaveenBalagouni/argocd-training.git'
             targetRevision: 'HEAD'
-            path: sources-git
+            path: Generator-resources/list-resources/list2
   
   template:
     metadata:
