@@ -1,25 +1,37 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: list-generator
+  name: list-applicationset-frontend-apps
+  namespace: argocd
 spec:
   generators:
-  - list:
-      elements:
-      - cluster: cluster1
-        url: https://cluster1.example.com
-      - cluster: cluster2
-        url: https://cluster2.example.com
+    - list:
+        elements:
+          - name: list-applicationset-first-application
+            repoURL: 'https://github.com/OpsMx/argo-sample-apps.git'
+            targetRevision: 'HEAD'
+            path: apps-resources/single-git-resources
+
+          - name: list-applicationset-second-application
+            repoURL: 'https://github.com/OpsMx/argo-sample-apps.git'
+            targetRevision: 'HEAD'
+            path: apps-resources/double-git-resources
+  
   template:
     metadata:
-      name: '{{cluster}}-app'
+      name: '{{name}}'
     spec:
       project: default
       source:
-        repoURL: https://github.com/argoproj/argocd-example-apps.git
-        targetRevision: HEAD
-        path: guestbook
+        repoURL: '{{repoURL}}'
+        targetRevision: '{{targetRevision}}'
+        path: '{{path}}'
       destination:
-        server: '{{url}}'
-        namespace: default
-
+        server: https://kubernetes.default.svc
+        namespace: '{{name}}-namespace'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
