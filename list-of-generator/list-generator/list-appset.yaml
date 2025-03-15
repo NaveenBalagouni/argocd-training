@@ -7,12 +7,12 @@ spec:
   generators:
     - list:
         elements:
-          - name: list-applicationset-first-application
+          - name: naveen-list-appsetfirst-application
             repoURL: 'https://github.com/NaveenBalagouni/argocd-training.git'
             targetRevision: 'HEAD'
             path: Generator-resources/list-resources/list
 
-          - name: list-applicationset-second-application
+          - name: naveen-list-appsetsecond-application
             repoURL: 'https://github.com/NaveenBalagouni/argocd-training.git'
             targetRevision: 'HEAD'
             path: Generator-resources/list-resources/list2
