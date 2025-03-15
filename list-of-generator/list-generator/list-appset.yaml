@@ -10,7 +10,7 @@ spec:
           - name: list-applicationset-first-application
             repoURL: 'https://github.com/NaveenBalagouni/argocd-training.git'
             targetRevision: 'HEAD'
-            path: Generator-resources/list-resources/list1
+            path: Generator-resources/list-resources/list
 
           - name: list-applicationset-second-application
             repoURL: 'https://github.com/NaveenBalagouni/argocd-training.git'
