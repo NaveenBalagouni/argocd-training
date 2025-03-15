@@ -29,7 +29,7 @@ spec:
         path: "{{valuesPath}}"
       destination:
         server: "https://kubernetes.default.svc"
-        namespace: naveen-appset
+        namespace: naveen-matrix-appset
       syncPolicy:
         automated:
           prune: true
