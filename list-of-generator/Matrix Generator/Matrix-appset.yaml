@@ -14,9 +14,9 @@ spec:
           - list:
               elements:
                 - name: matrix-helm1-resource
-                  valuesPath: "apps-resources/generator-resources/matrix-resource/matrix-helm1-resource"
+                  valuesPath: "Generator-resources/matrix-appset-resource/matrix-helm1-resource"
                 - name: matrix-helm2-resource
-                  valuesPath: "apps-resources/generator-resources/matrix-resource/matrix-helm2-resource"
+                  valuesPath: "Generator-resources/matrix-appset-resource/matrix-helm2-appset-resource"
                 
   template:
     metadata:
