@@ -5,19 +5,19 @@ metadata:
 spec:
   generators:
   - git:
-      repoURL: https://github.com/argoproj/argocd-example-apps.git
+      repoURL: https://github.com/NaveenBalagouni/argocd-training.git
       directories:
-      - path: 'guestbook/*'
+      - path: 'Generator-resources/git-appset-resources/*'
   template:
     metadata:
       name: '{{path.basename}}'
     spec:
       project: default
       source:
-        repoURL: https://github.com/argoproj/argocd-example-apps.git
+        repoURL: https://github.com/NaveenBalagouni/argocd-training.git
         targetRevision: HEAD
         path: '{{path}}'
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{path.basename}}'
+        namespace: naveen-appset
 
