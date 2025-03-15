@@ -28,7 +28,7 @@ spec:
         path: '{{path}}'
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{name}}-namespace'
+        namespace: naveen-appset
       syncPolicy:
         automated:
           prune: true
