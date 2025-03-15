@@ -6,6 +6,7 @@ spec:
   generators:
   - git:
       repoURL: https://github.com/NaveenBalagouni/argocd-training.git
+      revision: "HEAD"
       directories:
       - path: 'Generator-resources/git-appset-resources/*'
   template:
@@ -15,7 +16,7 @@ spec:
       project: default
       source:
         repoURL: https://github.com/NaveenBalagouni/argocd-training.git
-        targetRevision: main
+        targetRevision: "HEAD"
         path: '{{path}}'
       destination:
         server: https://kubernetes.default.svc
