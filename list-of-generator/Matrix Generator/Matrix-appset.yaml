@@ -1,28 +1,38 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: matrix-generator
+  name: matrix-appset-backend-app
+  namespace: argocd
 spec:
   generators:
-  - list:
-      elements:
-      - cluster: cluster1
-        url: https://cluster1.example.com
-      - cluster: cluster2
-        url: https://cluster2.example.com
-  - git:
-      repoURL: https://github.com/argoproj/argocd-example-apps.git
-      directories:
-      - path: 'guestbook/*'
+    - matrix:
+        generators:
+          - list:
+              elements:
+                - appName: single-helm
+                - appName: double-helm
+          - list:
+              elements:
+                - name: matrix-helm1-resource
+                  valuesPath: "apps-resources/generator-resources/matrix-resource/matrix-helm1-resource"
+                - name: matrix-helm2-resource
+                  valuesPath: "apps-resources/generator-resources/matrix-resource/matrix-helm2-resource"
+                
   template:
     metadata:
-      name: '{{cluster}}-{{path.basename}}'
+      name: '{{appName}}-{{name}}'
     spec:
       project: default
       source:
-        repoURL: https://github.com/argoproj/argocd-example-apps.git
-        targetRevision: HEAD
-        path: '{{path}}'
+        repoURL: "https://github.com/NaveenBalagouni/argocd-training.git"
+        targetRevision: "HEAD"
+        path: "{{valuesPath}}"
       destination:
-        server: '{{url}}'
-        namespace: '{{path.basename}}'
+        server: "https://kubernetes.default.svc"
+        namespace: naveen-appset
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
