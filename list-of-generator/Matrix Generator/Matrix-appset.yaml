@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: matrix-appset-backend-app
+  name: matrix-appset-parent-app
   namespace: argocd
 spec:
   generators:
