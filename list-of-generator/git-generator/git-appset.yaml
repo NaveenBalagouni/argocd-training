@@ -6,7 +6,7 @@ metadata:
 spec:
   generators:
     - git:                 
-        repoURL: "hhttps://github.com/NaveenBalagouni/argocd-training.git"
+        repoURL: "https://github.com/NaveenBalagouni/argocd-training.git"
         revision: "HEAD"
         directories:
           - path: "Generator-resources/git-appset-resources/*"
