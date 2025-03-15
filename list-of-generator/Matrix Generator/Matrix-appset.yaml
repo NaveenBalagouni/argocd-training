@@ -9,8 +9,8 @@ spec:
         generators:
           - list:
               elements:
-                - appName: single-helm
-                - appName: double-helm
+                - appName: naveen-single-helm
+                - appName: naveen-double-helm
           - list:
               elements:
                 - name: matrix-helm1-resource
