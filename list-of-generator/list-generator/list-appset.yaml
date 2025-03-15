@@ -27,7 +27,7 @@ spec:
         targetRevision: '{{targetRevision}}'
         path: '{{path}}'
       destination:
-        server: https://dev-vcluster.opencd.opsmx.org:443
+        server: https://kubernetes.default.svc
         namespace: '{{name}}-namespace'
       syncPolicy:
         automated:
