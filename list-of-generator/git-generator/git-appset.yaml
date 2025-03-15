@@ -8,7 +8,7 @@ spec:
       repoURL: https://github.com/NaveenBalagouni/argocd-training.git
       revision: "HEAD"
       directories:
-      - path: 'Generator-resources/git-appset-resources/*'
+      - path: 'Generator-resources/git-appset-resources/appset-git1/*'
   template:
     metadata:
       name: '{{path.basename}}'
