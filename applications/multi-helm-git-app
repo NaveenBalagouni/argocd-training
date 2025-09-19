@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: multi-helm-git-app
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    - repoURL: 'https://github.com/NaveenBalagouni/argocd-training.git'
+      targetRevision: HEAD
+      path: applications/resources/double-helm/single-src-helm
+      helm:
+        valueFiles:
+          - values.yaml
+
+    - repoURL: 'https://github.com/NaveenBalagouni/argocd-training.git'
+      targetRevision: HEAD
+      path: applications/resources/double-helm/two-helm
+      helm:
+        valueFiles:
+          - values.yaml
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: two-helm
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
