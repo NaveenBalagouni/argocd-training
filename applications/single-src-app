@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: single-src-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/NaveenBalagouni/argocd-training.git'
+    path: sample-apps/resources/single-src-resource
+    targetRevision: HEAD
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: single-src
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: two-git-repo-app
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    - repoURL: 'https://github.com/NaveenBalagouni/argocd-training.git'
+      targetRevision: main
+      path: sample-apps/resources/two-src-resource/single-src
+    - repoURL: 'https://github.com/NaveenBalagouni/argocd-training.git'
+      targetRevision: main
+      path: sample-apps/resources/two-src-resource/two-src
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: two-repo-sources
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
