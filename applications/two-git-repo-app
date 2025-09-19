@@ -8,10 +8,10 @@ spec:
   sources:
     - repoURL: 'https://github.com/NaveenBalagouni/argocd-training.git'
       targetRevision: main
-      path: sample-apps/resources/two-src-resource/single-src
+      path: applications/resources/two-src-app/one-src
     - repoURL: 'https://github.com/NaveenBalagouni/argocd-training.git'
       targetRevision: main
-      path: sample-apps/resources/two-src-resource/two-src
+      path: applications/resources/two-src-app/two-src
   destination:
     server: https://kubernetes.default.svc
     namespace: two-repo-sources
