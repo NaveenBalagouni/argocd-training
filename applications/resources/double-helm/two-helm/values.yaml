@@ -1,10 +1,9 @@
 replicaCount: 1
 image:
-  repository: nginx
-  tag: stable
+  repository: httpd
+  tag: latest
   pullPolicy: IfNotPresent
 service:
   type: ClusterIP
   port: 80
-configMap:
-  log_level: INFO
+containerPort: 80
