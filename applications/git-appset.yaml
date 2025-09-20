@@ -28,7 +28,7 @@ spec:
     spec:
       project: default
       source:
-        repoURL: https://github.com/your-user/your-repo.git         #  Update this
+        repoURL: https://github.com/NaveenBalagouni/argocd-training.git         #  Update this
         targetRevision: main
         path: '{{path}}'
         helm:
@@ -43,3 +43,40 @@ spec:
         automated:
           prune: true
           selfHeal: true
+
+
+# apiVersion: argoproj.io/v1alpha1
+# kind: ApplicationSet
+# metadata:
+#   name: git-directory-appset
+#   namespace: argocd
+# spec:
+#   # This generator discovers subdirectories in a Git repository
+#   generators:
+#   - git:
+#       repoURL: https://github.com/NaveenBalagouni/argocd-training.git  # 🔁 Update with your Git repository URL
+#       revision: HEAD
+#       directories:
+#       - path: applications/resources/git-appset-src/* # 🔁 Update with the path to your application directories
+
+#   # This template defines how to create an Argo CD Application for each discovered directory
+#   template:
+#     metadata:
+#       # This name uses a variable from the generator to create a unique name for each app
+#       name: '{{path.basename}}'
+#     spec:
+#       project: default
+#       source:
+#         repoURL: https://github.com/NaveenBalagouni/argocd-training.git #  Same as above
+#         targetRevision: HEAD
+#         path: '{{path}}' # The path to the subdirectory, e.g., 'apps/my-app'
+#       destination:
+#         server: https://kubernetes.default.svc
+#         namespace: '{{path.basename}}' # Each application will be deployed into its own namespace
+#       syncPolicy:
+#         automated:
+#           prune: true
+#           selfHeal: true
+#         # This will create the namespace if it does not exist
+#         syncOptions:
+#         - CreateNamespace=true
