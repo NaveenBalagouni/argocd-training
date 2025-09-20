@@ -2,7 +2,7 @@ replicaCount: 2
 
 image:
   repository: naveenbalagouni/python-docker-app
-  tag: dev
+  tag: latest
   pullPolicy: IfNotPresent
 
 service:
