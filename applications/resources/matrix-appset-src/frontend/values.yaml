@@ -1,7 +1,7 @@
 replicaCount: 2
 image:
   repository: nginx
-  tag: stable
+  tag: dev-latest
 service:
   type: ClusterIP
   port: 80

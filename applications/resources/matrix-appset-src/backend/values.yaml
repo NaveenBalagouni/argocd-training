@@ -1,8 +1,8 @@
 replicaCount: 1
 
 image:
-  repository: naveenbalagouni/my-web-app:alpine     # ✅ Public image from Docker Hub
-  tag: latest
+  repository: naveenbalagouni/my-web-app     # ✅ Public image from Docker Hub
+  tag: alpine
   pullPolicy: IfNotPresent
 
 service:
