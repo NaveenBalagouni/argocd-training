@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: naveenbalagouni/python-docker-app     # ✅ Public image from Docker Hub
+  repository: naveenbalagouni/my-web-app:alpine     # ✅ Public image from Docker Hub
   tag: latest
   pullPolicy: IfNotPresent
 
