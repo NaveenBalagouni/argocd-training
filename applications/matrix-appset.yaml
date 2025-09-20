@@ -1,0 +1,47 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: helm-matrix-appset
+  namespace: argocd
+spec:
+  generators:
+    - matrix:
+        generators:
+          - list:
+              elements:
+                - name: frontend
+                  path: applications/resources/matrix-appset-src/frontend
+                  releaseName: frontend
+                - name: backend
+                  path: applications/resources/matrix-appset-src/backend
+                  releaseName: backend
+          - list:
+              elements:
+                - env: dev
+                  namespace: dev
+                  revision: main
+                - env: prod
+                  namespace: prod
+                  revision: main
+
+  template:
+    metadata:
+      name: '{{name}}-{{env}}'   # frontend-dev, backend-prod etc.
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/NaveenBalagouni/argocd-training.git  # <-- Replace with your Git repo URL
+        targetRevision: '{{revision}}'
+        path: '{{path}}'
+        helm:
+          releaseName: '{{releaseName}}-{{env}}'
+          valueFiles:
+            - values-{{env}}.yaml
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{namespace}}'
+        createNamespace: true
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
