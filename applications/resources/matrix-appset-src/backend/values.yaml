@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: nginxdemos/hello     # ✅ Public image from Docker Hub
+  repository: naveenbalagouni/python-docker-app     # ✅ Public image from Docker Hub
   tag: latest
   pullPolicy: IfNotPresent
 
