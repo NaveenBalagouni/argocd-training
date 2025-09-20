@@ -24,7 +24,7 @@ spec:
 
   template:
     metadata:
-      name: 'myapp-{{name}}-{{env}}'     #  Valid RFC1123 name, e.g. frontend-dev
+      name: '{{path.basename}}-{{env}}'     #  Valid RFC1123 name, e.g. frontend-dev
     spec:
       project: default
       source:
