@@ -1,7 +1,14 @@
-replicaCount: 1
+replicaCount: 2
 image:
   repository: nginx
   tag: stable
 service:
   type: ClusterIP
   port: 80
+
+ingress:
+  enabled: false
+  host: ""
+  path: /
+
+
