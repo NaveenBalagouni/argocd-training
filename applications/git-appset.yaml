@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: git-appset-app
+  name: git-appset-application
   namespace: argocd
 spec:
   generators:
@@ -34,7 +34,6 @@ spec:
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{namespace}}'
-        createNamespace: true
       syncPolicy:
         automated:
           prune: true

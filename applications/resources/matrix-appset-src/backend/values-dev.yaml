@@ -1,5 +1,18 @@
 replicaCount: 1
+
 image:
-  tag: dev-latest
+  repository: naveenbalagouni/python-docker-app
+  tag: dev
+  pullPolicy: IfNotPresent
+
 service:
   type: ClusterIP
+  port: 8080
+
+environment: dev
+
+# database:
+#   host: dev-db.mycompany.local
+#   port: 5432
+#   user: devuser
+#   password: devpassword

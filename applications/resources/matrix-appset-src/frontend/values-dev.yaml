@@ -1,5 +1,12 @@
-replicaCount: 1
+replicaCount: 2
+
 image:
-  tag: dev-latest
+  repository: naveenbalagouni/python-docker-app
+  tag: dev
+  pullPolicy: IfNotPresent
+
 service:
   type: ClusterIP
+  port: 80
+
+environment: dev

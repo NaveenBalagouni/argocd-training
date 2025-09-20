@@ -1,5 +1,18 @@
 replicaCount: 4
+
 image:
-  tag: prod-latest
+  repository: naveenbalagouni/python-docker-app
+  tag: latest
+  pullPolicy: IfNotPresent
+
 service:
   type: LoadBalancer
+  port: 8080
+
+environment: prod
+
+# database:
+#   host: prod-db.mycompany.local
+#   port: 5432
+#   user: produser
+#   password: prodpassword

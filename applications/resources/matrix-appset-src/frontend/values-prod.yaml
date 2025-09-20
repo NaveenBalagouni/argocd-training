@@ -1,5 +1,12 @@
 replicaCount: 3
+
 image:
-  tag: prod-latest
+  repository: naveenbalagouni/python-docker-app
+  tag: latest
+  pullPolicy: IfNotPresent
+
 service:
   type: LoadBalancer
+  port: 80
+
+environment: prod

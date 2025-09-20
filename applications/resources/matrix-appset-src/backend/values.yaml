@@ -1,8 +1,8 @@
 replicaCount: 1
 
 image:
-  repository: naveenbalagouni/my-web-app     # ✅ Public image from Docker Hub
-  tag: alpine
+  repository: naveenbalagouni/python-docker-app     # ✅ Public image from Docker Hub
+  tag: latest
   pullPolicy: IfNotPresent
 
 service:
@@ -15,4 +15,27 @@ ingress:
   host: ""
   path: /
 
+
+environment: default
+
+
+
+# replicaCount: 1
+
+# image:
+#   repository: myregistry/backend
+#   tag: latest
+#   pullPolicy: IfNotPresent
+
+# service:
+#   type: ClusterIP
+#   port: 8080
+
+# environment: default
+
+# database:
+#   host: db.default.local
+#   port: 5432
+#   user: defaultuser
+#   password: defaultpass
 

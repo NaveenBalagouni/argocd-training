@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: helm-matrix-appset
+  name: matrix-appset-app
   namespace: argocd
 spec:
   generators:
