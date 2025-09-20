@@ -16,7 +16,7 @@ spec:
   template:
     metadata:
       # This name uses a variable from the generator to create a unique name for each app
-      name: '{{path.basename}}'
+      name: '{{path.basename}}-new'
     spec:
       project: default
       source:
