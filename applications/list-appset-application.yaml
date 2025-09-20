@@ -1,0 +1,38 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: helm-list-appset
+  namespace: argocd
+spec:
+  generators:
+    - list:
+        elements:
+          - name: frontend
+            namespace: frontend
+            path: applications/resources/list-appset-src/frontend
+            releaseName: frontend
+          - name: backend
+            namespace: backend
+            path: applications/resources/list-appset-src/backend
+            releaseName: backend
+  template:
+    metadata:
+      name: '{{name}}'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/NaveenBalagouni/argocd-training.git   #  Replace with your Git repo URL
+        targetRevision: HEAD
+        path: '{{path}}'
+        helm:
+          releaseName: '{{releaseName}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{namespace}}'
+        createNamespace: true
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+
+
