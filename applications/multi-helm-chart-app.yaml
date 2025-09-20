@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: multi-helm-git-app
+  name: multi-helm-chart-app
   namespace: argocd
 spec:
   project: default
