@@ -5,27 +5,39 @@ metadata:
   namespace: argocd
 spec:
   generators:
-    - git:
-        repoURL: https://github.com/NaveenBalagouni/argocd-training.git  #  Replace with your public/private Git repo
-        revision: main
-        directories:
-          - path: 'applications/resources/git-appset-src'
+    - matrix:
+        generators:
+          # 1️ Git directory generator (points to app dirs like frontend/backend)
+          - git:
+              repoURL: https://github.com/NaveenBalagouni/argocd-training.git   #  Update this
+              revision: main
+              directories:
+                - path: applications/resources/git-appset-src/*     #  Matches all subdirectories
+
+          # 2️ List generator for environments
+          - list:
+              elements:
+                - env: dev
+                  namespace: dev
+                - env: prod
+                  namespace: prod
+
   template:
     metadata:
-      name: '{{path.basename}}-{{env}}'
+      name: '{{path.basename}}-{{env}}'    #  Valid RFC1123 name, e.g. frontend-dev
     spec:
       project: default
       source:
-        repoURL: https://github.com/NaveenBalagouni/argocd-training.git  #  Same as above
+        repoURL: https://github.com/your-user/your-repo.git         #  Update this
         targetRevision: main
         path: '{{path}}'
         helm:
           releaseName: '{{path.basename}}-{{env}}'
           valueFiles:
-            - values-{{env}}.yaml
+            - values-{{env}}.yaml         #  Must exist in each app folder
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{env}}'
+        namespace: '{{namespace}}'
         createNamespace: true
       syncPolicy:
         automated:
