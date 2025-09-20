@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: git-appset-app
+  namespace: argocd
+spec:
+  generators:
+    - git:
+        repoURL: https://github.com/NaveenBalagouni/argocd-training.git  #  Replace with your public/private Git repo
+        revision: main
+        directories:
+          - path: 'applications/resources/git-appset-src'
+  template:
+    metadata:
+      name: '{{path.basename}}-{{env}}'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/NaveenBalagouni/argocd-training.git  #  Same as above
+        targetRevision: main
+        path: '{{path}}'
+        helm:
+          releaseName: '{{path.basename}}-{{env}}'
+          valueFiles:
+            - values-{{env}}.yaml
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{env}}'
+        createNamespace: true
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true

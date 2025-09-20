@@ -1,0 +1,5 @@
+replicaCount: 3
+image:
+  tag: prod-latest
+service:
+  type: LoadBalancer
