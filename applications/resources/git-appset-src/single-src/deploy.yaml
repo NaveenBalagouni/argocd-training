@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: single-src-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: single-src-deployment
+  template:
+    metadata:
+      labels:
+        app: single-src-deployment
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+        envFrom:
+        - configMapRef:
+            name: single-src-config
