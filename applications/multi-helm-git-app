@@ -21,7 +21,7 @@ spec:
           - values.yaml
 
   destination:
-    server: https://kubernetes.default.svc
+    server: 'https://kubernetes.default.svc'
     namespace: two-helm
 
   syncPolicy:
