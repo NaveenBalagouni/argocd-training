@@ -15,7 +15,7 @@ spec:
     metadata:
       name: '{{path.basename}}'
     spec:
-      project: default
+      project: customer
       source:
         repoURL: https://github.com/NaveenBalagouni/argocd-training.git
         targetRevision: HEAD
